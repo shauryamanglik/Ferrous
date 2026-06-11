@@ -401,7 +401,7 @@ nav.main{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(5,5,6,.
 .video-shell iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
 
 /* 60% efficiency graphic */
-.eff{margin-top:60px;background:linear-gradient(120deg,#15161c,#0c0c10 60%);border:1px solid var(--hairline);border-radius:var(--rd);padding:48px 280px 48px 44px;position:relative;overflow:hidden}
+.eff{margin-top:60px;background:linear-gradient(120deg,#15161c,#0c0c10 60%);border:1px solid var(--hairline);border-radius:var(--rd);padding:48px 44px;position:relative;overflow:hidden}
 .eff::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--red-hot),transparent)}
 .eff h3{font-family:var(--nulshock);font-size:clamp(19px,2.4vw,27px);text-transform:uppercase;margin-bottom:6px;background:linear-gradient(178deg,#fff,#a6a9b3 65%,#d4d6dd);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .eff .eff-sub{font-family:var(--data);font-weight:600;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--steel-mid);margin-bottom:36px}
@@ -415,6 +415,7 @@ nav.main{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(5,5,6,.
 .eff-big{position:absolute;right:44px;top:42px;text-align:right}
 .eff-big b{font-family:var(--nulshock);font-size:clamp(40px,5.5vw,72px);background:linear-gradient(178deg,#ffb3a3,var(--ember) 45%,var(--red-hot));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
 .eff-big span{display:block;font-family:var(--data);font-weight:700;font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--steel-mid)}
+.eff-left { max-width: 60%; }
 
 /* TBC model selector */
 .tbc-models{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:56px}
@@ -470,7 +471,7 @@ footer{border-top:1px solid var(--hairline);background:#060607;padding:66px 0 34
 
 /* responsive */
 @media (max-width:1080px){
-  .eff { padding: 48px 44px; }
+  .eff-left { max-width: 100%; }
   .companies,.mx-grid,.fac-cols,.units,.contact-grid,.why,.tbc-models{grid-template-columns:1fr 1fr}
   .split,.split.flip,.ph-grid,.loc-pair{grid-template-columns:1fr;gap:42px}
   .shots{grid-template-columns:1fr 1fr}
@@ -584,21 +585,24 @@ footer{border-top:1px solid var(--hairline);background:#060607;padding:66px 0 34
     </div>
 
     <div class="eff rv">
+    <div class="eff-left">
       <h3>The 60% Difference</h3>
-      <div class="eff-sub">Time &amp; manpower per truck &middot; manual vs Ferrous TBC</div>
-      <div class="eff-big"><b><span class="count" data-target="60">0</span>%</b><span>Reduction In Time<br>&amp; Manpower</span></div>
+      <div class="eff-sub">Time & manpower per truck · manual vs Ferrous TBC</div>
+      
       <div class="eff-row">
         <span class="el">Manual Crew</span>
         <div class="eff-track"><div class="eff-fill manual" data-w="92%"></div></div>
         <span class="ev">100%</span>
       </div>
+      
       <div class="eff-row">
         <span class="el">Ferrous TBC</span>
         <div class="eff-track"><div class="eff-fill tbc" data-w="36.8%"></div></div>
-        <span class="ev" style="color:var(--ember)">&lt; 40%</span>
+        <span class="ev" style="color:var(--ember)">< 40%</span>
       </div>
+      
       <p style="font-size:13.5px;color:#7c7e87;margin-top:10px">One operator. One joystick. The conveyor extends into the trailer and the boxes flow, no chain of people passing cartons hand to hand.</p>
-    </div>
+    </div> <div class="eff-big"><b><span class="count" data-target="60">0</span>%</b><span>Reduction In Time<br>& Manpower</span></div>
   </div>
 </section>
 

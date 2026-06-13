@@ -127,7 +127,7 @@ nav.main{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(5,5,6,.
 /* hero */
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:170px 0 0;overflow:hidden}
 .hero-ring{position:absolute;top:50%;left:50%;width:min(78vw,860px);opacity:.16;z-index:0;pointer-events:none;
-  transform:translate(-50%,-54%);animation:slow-spin 45s linear infinite;will-change:transform;
+  transform:translate(-50%,-54%);animation:slow-spin 15s linear infinite;will-change:transform;
   filter:drop-shadow(0 0 60px rgba(255,255,255,.06))}
 @keyframes slow-spin{from{transform:translate(-50%,-54%) rotate(0)}to{transform:translate(-50%,-54%) rotate(360deg)}}
 .hero-inner{position:relative;z-index:2;text-align:center}
@@ -141,7 +141,7 @@ nav.main{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(5,5,6,.
 .hero-title::after{content:attr(data-text);position:absolute;inset:0;
   background:linear-gradient(105deg,transparent 38%,rgba(255,255,255,.95) 49%,rgba(255,120,90,.65) 52%,transparent 62%);
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
-  background-size:280% 100%;animation:sheen 6.5s ease-in-out infinite}
+  background-size:280% 100%;animation:sheen 3s ease-in-out infinite}
 @keyframes sheen{0%,55%{background-position:130% 0}85%,100%{background-position:-60% 0}}
 .hero-sub{font-family:var(--nulshock);font-size:clamp(12px,2.4vw,26px);letter-spacing:.78em;text-transform:uppercase;color:var(--red-hot);margin:26px 0 0;text-indent:.78em;text-shadow:0 0 26px rgba(168,16,30,.55)}
 .hero-tag{margin:36px auto 0;max-width:660px;font-size:18px;color:#b6b8c0}
@@ -559,7 +559,8 @@ footer{border-top:1px solid var(--hairline);background:#060607;padding:66px 0 34
 .nn-k{font-family:var(--data);font-weight:700;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--red-hot)}
 .nn-t{font-family:var(--nulshock);font-size:16px;color:var(--white);text-transform:uppercase}
 .nn-d{font-size:13px;color:#8f919a;flex:1}
-.nn-a{font-family:var(--nulshock);font-size:16px;color:var(--red-hot);transition:transform .25s;align-self:flex-end}
+.nn-a{display:inline-flex;align-items:center;gap:10px;font-family:var(--data);font-weight:700;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#fff;margin-top:14px;padding:12px 16px;border-radius:var(--rd-sm);background:linear-gradient(110deg,#45060c 0%,var(--red-deep) 26%,var(--red-hot) 50%,var(--red-deep) 74%,#45060c 100%);background-size:220% 100%;animation:co-flow 4.2s linear infinite;box-shadow:0 8px 22px rgba(70,6,12,.5);text-shadow:0 1px 6px rgba(0,0,0,.45);align-self:stretch;justify-content:center;transition:box-shadow .25s}
+.nn:hover .nn-a{transform:none;box-shadow:0 12px 32px rgba(92,8,16,.65)}
 .nn:hover .nn-a{transform:translateX(6px)}
 .nn.here{border-color:rgba(168,16,30,.45)}
 .nn-here{font-family:var(--data);font-weight:700;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--steel-low);border:1px solid #2c2d34;border-radius:var(--rd-xs);padding:4px 9px;align-self:flex-start;margin-bottom:2px}
@@ -872,7 +873,7 @@ footer{border-top:1px solid var(--hairline);background:#060607;padding:66px 0 34
 <section id="infrastructure">
   <div class="wrap">
     <div class="eyebrow rv"><span class="idx">04</span> Infrastructure</div>
-    <h2 class="steel rv">Heavy Metal, <br>Heavier <span class="red-word">Capability.</span></h2>
+    <h2 class="steel rv">Heavy Machines, <br>Heavier <span class="red-word">Capability.</span></h2>
     <p class="lede rv rv-d1">State-of-the-art facilities across <strong>three units and 2,00,000+ sq. ft.</strong>, with world-class heavy engineering machinery and a fabrication capacity of <strong>600 tons per annum.</strong></p>
 
     <div class="banner rv">
@@ -893,7 +894,7 @@ footer{border-top:1px solid var(--hairline);background:#060607;padding:66px 0 34
       <div class="fac rv"><h3>Fabrication Shop <span>01</span></h3><ul>
         <li>CNC plasma cutting</li><li>Plate roll, up to 32 mm</li><li>Hydraulic press</li><li>MIG / TIG / ARC / spot welding</li><li>Radial drill, up to 75 mm</li><li>Shearing machine</li><li>Portable drills</li></ul></div>
       <div class="fac rv rv-d1"><h3>Machine Shop <span>02</span></h3><ul>
-        <li>Vertical &amp; horizontal lathes</li><li>Horizontal boring</li><li>Universal milling</li><li>Shaper, up to 600 mm stroke</li><li>Bandsaw / hacksaw</li><li>Surface grinders</li><li>Dynamic balancing</li></ul></div>
+        <li>Vertical &amp; horizontal lathes</li><li>Horizontal boring</li><li>Universal milling</li><li>Shaper</li><li>Bandsaw / hacksaw</li><li>Surface grinders</li><li>Dynamic balancing</li></ul></div>
       <div class="fac rv rv-d2"><h3>Special Facilities <span>03</span></h3><ul>
         <li>Thermal spray coating</li><li>Re-babbitting</li><li>Portable XRF spectrometer</li><li>Ultrasonic thickness tester</li><li>Portable hardness tester</li><li>In-situ machining</li><li>Shot &amp; sand blasting</li></ul></div>
     </div>
@@ -1013,9 +1014,9 @@ footer{border-top:1px solid var(--hairline);background:#060607;padding:66px 0 34
     <h2 class="steel rv">Where To <span class="red-word">Next?</span></h2>
     <div class="nn-grid">
       <a class="nn here rv" href="/"><span class="nn-here">You are here</span><span class="nn-k">The Group</span><span class="nn-t">Ferrous Group</span><span class="nn-d">40+ years of engineering excellence. Three companies, one standard.</span><span class="nn-a">&#8635;</span></a>
-      <a class="nn rv rv-d1" href="/fe/"><span class="nn-k">Cement &amp; Steel</span><span class="nn-t">Ferrous Engineering</span><span class="nn-d">Heavy fabrication, precision machining &amp; the RAL specialists.</span><span class="nn-a">&rarr;</span></a>
-      <a class="nn rv rv-d2" href="/de/"><span class="nn-k">Power &amp; Defence</span><span class="nn-t">Deepak Engineering</span><span class="nn-d">Critical spares: built new, developed &amp; restored beyond new.</span><span class="nn-a">&rarr;</span></a>
-      <a class="nn rv rv-d3" href="/fapl/"><span class="nn-k">Automation</span><span class="nn-t">Ferrous Automations</span><span class="nn-d">Telescopic belt conveyors &amp; material handling automation.</span><span class="nn-a">&rarr;</span></a>
+      <a class="nn rv rv-d1" href="/fe/"><span class="nn-k">Cement &amp; Steel</span><span class="nn-t">Ferrous Engineering</span><span class="nn-d">Heavy fabrication, precision machining &amp; the RAL specialists.</span><span class="nn-a">Visit Page &rarr;</span>&rarr;</span></a>
+      <a class="nn rv rv-d2" href="/de/"><span class="nn-k">Power &amp; Defence</span><span class="nn-t">Deepak Engineering</span><span class="nn-d">Critical spares: built new, developed &amp; restored beyond new.</span><span class="nn-a">Visit Page &rarr;</span>&rarr;</span></a>
+      <a class="nn rv rv-d3" href="/fapl/"><span class="nn-k">Automation</span><span class="nn-t">Ferrous Automations</span><span class="nn-d">Telescopic belt conveyors &amp; material handling automation.</span><span class="nn-a">Visit Page &rarr;</span>&rarr;</span></a>
     </div>
   </div>
 </section>

@@ -19,6 +19,7 @@
 <link href="https://fonts.cdnfonts.com/css/xirod" rel="stylesheet">
 <link href="https://fonts.cdnfonts.com/css/nulshock" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Orbitron:wght@500;700;900&family=Saira:wght@300;400;500;600&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"Ferrous Group","url":"https://www.ferrous.co.in","logo":"https://raw.githubusercontent.com/shauryamanglik/Ferrous/main/Ferrous%20Logos/Ferrous%20Circle.png","foundingDate":"1985","slogan":"Unbeatable quality at an unmatched price in committed time","description":"Heavy fabrication, precision machining, equipment reconditioning and industrial automation for Power, Cement, Steel and Defence sectors across India.","address":{"@type":"PostalAddress","streetAddress":"B-3, Tadali MIDC, Nagpur Road","addressLocality":"Chandrapur","addressRegion":"Maharashtra","postalCode":"442406","addressCountry":"IN"},"sameAs":["https://www.linkedin.com/company/ferrousgroup","https://www.instagram.com/ferrousgroup/","https://www.facebook.com/ferrousgroup/"],"subOrganization":[{"@type":"Organization","name":"Ferrous Engineering","url":"https://www.ferrous.co.in/fe"},{"@type":"Organization","name":"Deepak Engineering","url":"https://www.ferrous.co.in/de"},{"@type":"Organization","name":"Ferrous Automations Pvt. Ltd.","url":"https://www.ferrous.co.in/fapl"}]}
 </script>
@@ -39,7 +40,9 @@
   --steel-hi:#f2f3f6;--steel-mid:#9b9ea8;--steel-low:#5c5f68;--smoke:#8e9099;--white:#f5f5f7;
   --red-deep:#5c0810;--red:#7d0c16;--red-hot:#a8101e;--ember:#f04f33;
   --xirod:'Xirod','Michroma',sans-serif;--nulshock:'Nulshock','Orbitron',sans-serif;
-  --body:'Saira',system-ui,sans-serif;--data:'Rajdhani',sans-serif;
+  /* --body:'Saira',system-ui,sans-serif; */
+  --body:'Inter',system-ui,sans-serif;
+  --data:'Rajdhani',sans-serif;
   --rd:18px 0 18px 0;        /* signature: top-left + bottom-right rounded */
   --rd-sm:12px 0 12px 0;
   --rd-xs:8px 0 8px 0;
@@ -126,7 +129,7 @@ nav.main{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(5,5,6,.
 
 /* hero */
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:170px 0 0;overflow:hidden}
-.hero-ring{position:absolute;top:50%;left:50%;width:min(78vw,860px);opacity:.16;z-index:0;pointer-events:none;
+.hero-ring{position:absolute;top:50%;left:50%;width:min(78vw,860px);opacity:.06;z-index:0;pointer-events:none;
   transform:translate(-50%,-54%);animation:slow-spin 15s linear infinite;will-change:transform;
   filter:drop-shadow(0 0 60px rgba(255,255,255,.06))}
 @keyframes slow-spin{from{transform:translate(-50%,-54%) rotate(0)}to{transform:translate(-50%,-54%) rotate(360deg)}}
@@ -728,6 +731,7 @@ footer{border-top:1px solid var(--hairline);background:#060607;padding:66px 0 34
     </div>
     <div class="scroll-hint">Scroll</div>
   </div>
+  <!--
   <div class="ticker" aria-hidden="true">
     <div class="ticker-track" data-loop>
       <span>Vertical Lathe &Oslash; 3.5 M</span>
@@ -740,8 +744,9 @@ footer{border-top:1px solid var(--hairline);background:#060607;padding:66px 0 34
       <span>EWAC Authorised Reclamation</span>
       <span>Heavy Jobs Up To 15 Tons</span>
       <span>2500+ Projects Delivered</span>
-    </div>
+    </div> 
   </div>
+  -->
 </header>
 
 <section id="group">

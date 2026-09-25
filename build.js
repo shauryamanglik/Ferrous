@@ -881,7 +881,7 @@ ${j.walkIn ? `        <div class="rail rv rv-d1">
   <div class="wrap">
     <div class="eyebrow rv"><span class="idx">&raquo;</span> Apply</div>
     <h2 class="steel rv">Apply For <br>This <span class="red-word">Role.</span></h2>
-    <p class="lede rv rv-d1">One form, and it arrives already tagged to ${esc(j.title)}. Freshers are welcome. If you have not worked yet, the form asks about your projects and training instead.</p>
+    <p class="lede rv rv-d1">Fill out this form to apply to ${esc(j.title)}. Make sure you read the job description before applying, and be specific while answering questions. Generic submissions will be filtered out.</p>
 ${form}
     <p class="fnote rv">Form not loading? Email your CV to <a href="mailto:${config.careersEmail}?subject=Application%3A%20${encodeURIComponent(plain(j.title))}">${config.careersEmail}</a> with the role name in the subject.</p>
   </div>

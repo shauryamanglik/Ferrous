@@ -12,7 +12,7 @@
     },
     "careersEmail": "careers@ferrous.co.in",
     "siteUrl": "https://www.ferrous.co.in",
-    "navLink": false,
+    "navLink": true,
     "walkIn": {
       "days": "Monday to Saturday",
       "time": "9:00 AM to 5:30 PM"

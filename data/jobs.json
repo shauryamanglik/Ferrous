@@ -1,0 +1,180 @@
+{
+  "_README": "EDIT THIS FILE TO POST OR REMOVE JOBS. Set \"live\": false to pull a role off the site everywhere at once. See CAREERS-README.md for the field guide.",
+
+  "config": {
+    "tallyFormId": "q46o9d",
+    "generalTallyFormId": "KYbWpg",
+    "careersEmail": "careers@ferrous.co.in",
+    "siteUrl": "https://www.ferrous.co.in",
+    "navLink": false,
+    "walkIn": {
+      "days": "Monday to Saturday",
+      "time": "9:00 AM to 5:30 PM"
+    }
+  },
+
+  "companies": {
+    "FE": {
+      "name": "Ferrous Engineering",
+      "path": "/fe",
+      "sector": "Cement & Steel",
+      "shortLocation": "Tadali MIDC, Chandrapur",
+      "streetAddress": "Plot B-3, Tadali MIDC Growth Centre, Nagpur Road",
+      "locality": "Chandrapur",
+      "region": "Maharashtra",
+      "postalCode": "442406",
+      "phone": "+918412011665",
+      "phoneDisplay": "+91 84120 11665"
+    },
+    "DE": {
+      "name": "Deepak Engineering",
+      "path": "/de",
+      "sector": "Power & Defence",
+      "shortLocation": "Mul Road, Chandrapur",
+      "streetAddress": "6/1, Industrial Estate, Mul Road",
+      "locality": "Chandrapur",
+      "region": "Maharashtra",
+      "postalCode": "442401",
+      "phone": "+918412011335",
+      "phoneDisplay": "+91 84120 11335"
+    },
+    "FA": {
+      "name": "Ferrous Automations",
+      "path": "/fapl",
+      "sector": "Automation",
+      "shortLocation": "MIDC Chakan, Pune",
+      "streetAddress": "464/2, Kuruli, near Mercedes Benz, MIDC Chakan",
+      "locality": "Pune",
+      "region": "Maharashtra",
+      "postalCode": "410501",
+      "phone": "+918412011225",
+      "phoneDisplay": "+91 84120 11225"
+    }
+  },
+
+  "jobs": [
+    {
+      "live": true,
+      "slug": "commercial-operations-executive",
+      "title": "Commercial Operations Executive",
+      "company": "FE",
+      "workplace": "On-site",
+      "employmentType": "FULL_TIME",
+      "experience": "0 to 3 years",
+      "walkIn": true,
+      "posted": "2026-09-21",
+      "salary": { "min": 20000, "max": 25000, "unit": "MONTH" },
+      "summary": "Own our e-tendering and online bidding end to end, from document prep to live reverse auctions.",
+      "about": "We are looking for a detail-oriented, tech-savvy professional to run our commercial bidding and e-tendering. Sitting in the commercial team at Tadali MIDC, you will live inside online B2B portals, build tender documents that win, and hold your nerve in live reverse auctions against India's largest power, cement, steel and defence buyers.",
+      "responsibilities": [
+        { "t": "Tender Management", "d": "End-to-end preparation, compilation and on-time submission of technical and commercial bids for government and private tenders." },
+        { "t": "Portal Management", "d": "Register, update and maintain our company profile across client B2B portals, e-procurement sites, GeM and private vendor portals." },
+        { "t": "Reverse Auctions", "d": "Run live online reverse auctions in real time, coordinating with senior management while the clock is running." },
+        { "t": "Commercial Documentation", "d": "Produce accurate quotations, estimates and compliance documents that meet every client guideline exactly." },
+        { "t": "Cross-Functional Coordination", "d": "Pull technical data and pricing out of the engineering, estimating and management teams to build each bid." }
+      ],
+      "mustHave": [
+        "Graduate or Diploma in any stream",
+        "Exceptional attention to detail and strong numerical ability",
+        "Comfortable working to strict submission deadlines",
+        "Confident navigating complex websites and online portals",
+        "Solid with MS Office, Excel and Google Sheets",
+        "Sharp and alert under pressure, such as a live auction"
+      ],
+      "niceToHave": [
+        "Engineering background",
+        "Prior e-tendering, online bidding or vendor portal experience",
+        "Working knowledge of AI tools"
+      ],
+      "benefits": [
+        { "t": "Stable Ground", "d": "A professional environment inside one of Central India's most respected heavy engineering groups." },
+        { "t": "Real Stakes", "d": "Direct involvement in winning high-value industrial contracts, with a clear path up in commercial operations." },
+        { "t": "Fair Pay", "d": "Competitive salary benchmarked to industry standards and your experience level." }
+      ]
+    },
+
+    {
+      "live": true,
+      "slug": "sales-and-marketing-engineer",
+      "title": "Sales & Marketing Engineer",
+      "company": "FE",
+      "workplace": "On-site",
+      "employmentType": "FULL_TIME",
+      "experience": "2+ years",
+      "walkIn": true,
+      "posted": "2026-09-21",
+      "salary": { "min": 25000, "max": 33000, "unit": "MONTH" },
+      "summary": "Be the face of Ferrous in the field. Technical B2B sales across power, cement, steel and defence, pan India.",
+      "about": "We are looking for an energetic, technically sound Sales &amp; Marketing Engineer to drive our growth. Based at Tadali MIDC but on the road often, you will be the face of the company to clients in power, cement, steel and defence. This is a field role: plant visits, shop-floor conversations, and closing heavy engineering contracts, backed by the digital and offline marketing you drive yourself.",
+      "responsibilities": [
+        { "t": "Field Sales & Client Acquisition", "d": "Travel to industrial sites, plants and corporate offices to pitch our fabrication, machining and reconditioning capability." },
+        { "t": "Client Relationships", "d": "Own existing accounts. Visit regularly, find the operational pain, and propose the fix using Hardox&reg; wear parts or EWAC reclamation." },
+        { "t": "Technical Presentations", "d": "Present to plant managers, maintenance heads and procurement teams, technically and commercially." },
+        { "t": "Marketing Execution", "d": "Run offline and digital marketing: brochures, industrial expos and a professional digital presence that pulls inbound B2B leads." },
+        { "t": "Market Intelligence", "d": "Track upcoming projects, plant shutdowns and competitor moves to position us early for vendor registrations and orders." },
+        { "t": "Sales Coordination", "d": "Work with estimating, engineering and commercial so client requirements turn into proposals that actually win." }
+      ],
+      "mustHave": [
+        "B.E. / B.Tech or Diploma in Mechanical Engineering or similar",
+        "Minimum 2 years in B2B industrial sales, technical marketing or business development",
+        "Exceptional interpersonal, negotiation and communication skills",
+        "Willing to travel frequently across Central India and pan-India",
+        "Able to read technical drawings and understand heavy machinery components"
+      ],
+      "niceToHave": [
+        "MBA or a qualification in Sales or Marketing",
+        "Experience in heavy engineering, machinery or manufacturing",
+        "Fluent in English, Hindi and Marathi"
+      ],
+      "benefits": [
+        { "t": "Revenue Ownership", "d": "A high-impact role driving the top line of a 40-year-old legacy company." },
+        { "t": "Incentives & Travel", "d": "Travel allowances and performance-based incentives on top of a competitive base." },
+        { "t": "Room Access", "d": "Direct exposure to top management at India's largest industrial conglomerates." },
+        { "t": "Technical Backup", "d": "A strong engineering team behind every promise you make on the field." },
+        { "t": "Free On-Site Housing", "d": "Accommodation for bachelors and families can be provided on request, subject to availability." }
+      ]
+    },
+
+    {
+      "live": true,
+      "slug": "workshop-supervisor",
+      "title": "Workshop Supervisor",
+      "company": "FE",
+      "workplace": "On-site",
+      "employmentType": "FULL_TIME",
+      "experience": "3+ years",
+      "walkIn": true,
+      "posted": "2026-09-21",
+      "salary": { "min": 25000, "max": 42000, "unit": "MONTH" },
+      "summary": "Run the shop floor across 1,70,000 sq. ft. Lead machinists and fabricators on jobs up to 15 tons.",
+      "about": "We are looking for a hands-on Workshop Supervisor to lead shop-floor operations at Tadali MIDC. You will run daily activity across our 1,70,000 sq. ft. campus, on machines most workshops in India do not have: a 3.5 m vertical lathe, a 3 x 13 m CNC plasma bed, a 500 MT hydraulic press. You will direct skilled technicians and operators and make sure every component going out to a power, cement, steel or defence plant is right the first time.",
+      "responsibilities": [
+        { "t": "Shop-Floor Management", "d": "Supervise daily production, fabrication, assembly and machining from raw plate to finished component." },
+        { "t": "Team Leadership", "d": "Allocate daily work to machinists, welders and the fabrication crew, and keep the workflow clear of bottlenecks." },
+        { "t": "Quality & Tolerance", "d": "Hold rotary air locks, crusher rotors and mill rollers to drawing, spec and Hardox&reg; / EWAC standards." },
+        { "t": "Machinery Oversight", "d": "Coordinate routine maintenance and troubleshooting on heavy machinery to keep downtime near zero." },
+        { "t": "Safety Compliance", "d": "Enforce shop-floor safety protocol, PPE discipline and factory safety guidelines without exception." },
+        { "t": "Progress Tracking", "d": "Track project timelines with planning and commercial so we deliver on the date we committed to." }
+      ],
+      "mustHave": [
+        "Diploma or B.E. / B.Tech in Mechanical Engineering, or equivalent technical certification",
+        "Minimum 3 years supervising a heavy engineering workshop, plant, fabrication yard or machinery shop",
+        "Strong grasp of mechanical drawings and precision machining tolerances",
+        "Working knowledge of MIG, TIG and ARC welding",
+        "Good leadership and communication skills",
+        "Proactive, disciplined and safety-conscious"
+      ],
+      "niceToHave": [
+        "Experience leading a skilled blue-collar crew under deadline pressure",
+        "Exposure to Hardox&reg; wear parts or EWAC reclamation",
+        "Familiar with vertical lathes, CNC plasma cutting or hydraulic presses"
+      ],
+      "benefits": [
+        { "t": "Stable Ground", "d": "A professional environment inside one of Central India's most respected heavy engineering groups." },
+        { "t": "Serious Machines", "d": "Leadership over heavy manufacturing equipment and large-scale industrial projects." },
+        { "t": "Technical Culture", "d": "A supportive engineering team and a shop built on technical excellence." },
+        { "t": "Free On-Site Housing", "d": "Accommodation for bachelors and families can be provided on request, subject to availability." }
+      ]
+    }
+  ]
+}

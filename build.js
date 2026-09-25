@@ -674,7 +674,7 @@ ${openings}
     <h2 class="steel rv">What You Get <br>Working <span class="red-word">Here.</span></h2>
     <div class="whyus">
       <div class="w rv"><span class="n">01</span><h3>Machines That Matter</h3><p>A 3.5 m vertical lathe, a 3 &times; 13 m CNC plasma bed, a 500 MT press. Equipment most workshops in India will never touch.</p></div>
-      <div class="w rv rv-d1"><span class="n">02</span><h3>Work You Can Point At</h3><p>Components running inside NTPC, Ultratech, SAIL and Ordnance Factory plants. Real output, not slide decks.</p></div>
+      <div class="w rv rv-d1"><span class="n">02</span><h3>Work You Can Point At</h3><p>Components running inside NTPC, Adani, SAIL and Ordnance Factory plants. Real output, not slide decks.</p></div>
       <div class="w rv rv-d2"><span class="n">03</span><h3>A Small Team, Real Ownership</h3><p>You will not be a row in a spreadsheet. Your work is visible, and so is the difference you make to it.</p></div>
       <div class="w rv rv-d3"><span class="n">04</span><h3>Forty Years Of Stability</h3><p>Founded 1985, three companies, 2,00,000+ sq. ft. and clients who have come back for decades.</p></div>
     </div>

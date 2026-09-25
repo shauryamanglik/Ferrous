@@ -339,10 +339,12 @@ const CAREERS_CSS = `/* ============ FERROUS CAREERS LAYER ============
 
 /* apply */
 .fshell{margin-top:36px;border:1px solid var(--hairline);border-radius:var(--rd);overflow:hidden;
-  background:var(--coal);position:relative}
-.fshell::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;z-index:2;
+  position:relative;background:#0c0c0c}
+.fshell::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;z-index:2;pointer-events:none;
   background:linear-gradient(90deg,transparent,var(--red-hot),transparent)}
-.fshell iframe{display:block;width:100%;border:0;min-height:920px;background:transparent}
+/* the iframe carries the form's own background and padding. do not override either. */
+.fshell iframe{display:block;width:100%;border:0;min-height:920px;color-scheme:normal}
+.fshell.plain{background:transparent}
 .fnote{font-family:var(--data);font-weight:600;font-size:13.5px;letter-spacing:.06em;color:var(--steel-low);margin-top:18px}
 .fnote a{color:var(--steel-hi)}
 .fnote a:hover{color:var(--ember)}
@@ -420,7 +422,18 @@ const ic = {
 };
 
 const mono   = (c, lg) => `<span class="mono${lg ? ' lg' : ''}"><b>${c}</b><i>${companies[c].name}</i></span>`;
-const tally  = (id, p) => `https://tally.so/embed/${id}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&${new URLSearchParams(p)}`;
+const EMB = Object.assign(
+  { hideTitle: true, transparentBackground: false, alignLeft: false, dynamicHeight: true },
+  config.tallyEmbed || {});
+const tally = (id, p) => {
+  const q = new URLSearchParams(p);
+  if (EMB.hideTitle)             q.set('hideTitle', '1');
+  if (EMB.transparentBackground) q.set('transparentBackground', '1');
+  if (EMB.alignLeft)             q.set('alignLeft', '1');
+  if (EMB.dynamicHeight)         q.set('dynamicHeight', '1');
+  return `https://tally.so/embed/${id}?${q}`;
+};
+const TALLY_JS = '<script async src="https://tally.so/widgets/embed.js"></script>';
 const hasForm = id => id && !/REPLACE/i.test(id);
 
 /* ---------------- the band ---------------- */
@@ -723,7 +736,8 @@ write('careers/index.html', shell({
     });
   });
 })();
-</script>`
+</script>
+${hasForm(config.generalTallyFormId) ? TALLY_JS : ''}`
 }));
 
 /* ---------------- job pages ---------------- */
@@ -952,7 +966,7 @@ ${nextNav(jobUrl(j))}
   }
 })();
 </script>
-<script async src="https://tally.so/widgets/embed.js"></script>`
+${hasForm(config.tallyFormId) ? TALLY_JS : ''}`
   });
 }
 

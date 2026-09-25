@@ -4,6 +4,12 @@
   "config": {
     "tallyFormId": "q46o9d",
     "generalTallyFormId": "KYbWpg",
+    "tallyEmbed": {
+      "hideTitle": true,
+      "transparentBackground": false,
+      "alignLeft": false,
+      "dynamicHeight": true
+    },
     "careersEmail": "careers@ferrous.co.in",
     "siteUrl": "https://www.ferrous.co.in",
     "navLink": false,

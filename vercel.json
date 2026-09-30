@@ -5,20 +5,20 @@
   "outputDirectory": ".",
   "headers": [
     {
-      "source": "/dm/deepak.vcf",
+      "source": "/Contact Cards/dm/deepak.vcf",
       "headers": [
         { "key": "Content-Type", "value": "text/vcard; charset=utf-8" },
         { "key": "Cache-Control", "value": "public, max-age=300" }
       ]
     },
     {
-      "source": "/dm",
+      "source": "/Contact Cards/dm",
       "headers": [
         { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
       ]
     },
     {
-      "source": "/dm/assets/(.*)",
+      "source": "/Contact Cards/dm/assets/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]

@@ -3,22 +3,32 @@
   "trailingSlash": false,
   "buildCommand": "node build.js",
   "outputDirectory": ".",
+  "rewrites": [
+    {
+      "source": "/dm",
+      "destination": "/Contact%20Cards/dm"
+    },
+    {
+      "source": "/dm/(.*)",
+      "destination": "/Contact%20Cards/dm/$1"
+    }
+  ],
   "headers": [
     {
-      "source": "/Contact Cards/dm/deepak.vcf",
+      "source": "/dm/deepak.vcf",
       "headers": [
         { "key": "Content-Type", "value": "text/vcard; charset=utf-8" },
         { "key": "Cache-Control", "value": "public, max-age=300" }
       ]
     },
     {
-      "source": "/Contact Cards/dm",
+      "source": "/dm",
       "headers": [
         { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
       ]
     },
     {
-      "source": "/Contact Cards/dm/assets/(.*)",
+      "source": "/dm/assets/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]

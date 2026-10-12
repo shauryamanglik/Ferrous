@@ -180,6 +180,43 @@
         { "t": "Technical Culture", "d": "A supportive engineering team and a shop built on technical excellence." },
         { "t": "Free On-Site Housing", "d": "Accommodation for bachelors and families can be provided on request, subject to availability." }
       ]
+    },
+
+    {
+      "live": true,
+      "slug": "mechanical-design-engineer",
+      "title": "Mechanical Design Engineer",
+      "company": "FE",
+      "workplace": "On-site",
+      "employmentType": "FULL_TIME",
+      "experience": "2+ years",
+      "walkIn": true,
+      "posted": "2026-10-12",
+      "salary": { "min": 25000, "max": 35000, "unit": "MONTH" },
+      "summary": "Develop precision 2D drawings and 3D models for heavy fabrication projects at our Tadali facility.",
+      "about": "We are looking for an experienced Mechanical Design Engineer to join our core engineering team at the Tadali Factory. You will be responsible for translating complex customer and project requirements into exact fabrication and assembly drawings. Working closely with the shop floor, you will ensure every 2D and 3D model meets rigorous standards for heavy fabrication and machining.",
+      "responsibilities": [
+        { "t": "Drafting & Modeling", "d": "Develop accurate 2D drawings and comprehensive 3D models using industry-standard CAD software." },
+        { "t": "Fabrication Drawings", "d": "Prepare detailed fabrication and assembly drawings aligned exactly with customer and project requirements." },
+        { "t": "Quality & Compliance", "d": "Ensure all drawings are strictly accurate, complete, and fully compliant with mechanical standards." },
+        { "t": "Cross-Functional Coordination", "d": "Collaborate smoothly with production, quality assurance, and other departments to avoid bottlenecks." },
+        { "t": "Process Documentation", "d": "Support ongoing process improvements and maintain meticulous technical documentation." }
+      ],
+      "mustHave": [
+        "Diploma or Degree in Mechanical Engineering (or equivalent)",
+        "2+ years of drawing and design experience in the heavy fabrication industry",
+        "Strong proficiency in AutoCAD",
+        "Solid knowledge of fabrication processes, machining, and GD&T",
+        "Exceptional attention to detail and the ability to hit strict project deadlines"
+      ],
+      "niceToHave": [
+        "Experience with 3D modeling software like SolidWorks or Tekla"
+      ],
+      "benefits": [
+        { "t": "Stable Ground", "d": "A professional environment inside one of Central India's most respected heavy engineering groups." },
+        { "t": "Real Impact", "d": "Directly design components and assemblies that will be fabricated on our 1,70,000 sq. ft. shop floor." },
+        { "t": "Free On-Site Housing", "d": "Accommodation for bachelors and families can be provided on request, subject to availability." }
+      ]
     }
   ]
 }

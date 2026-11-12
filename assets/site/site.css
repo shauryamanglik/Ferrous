@@ -2048,4 +2048,60 @@ html.pt-in::after{animation-duration:.38s}
 .jcard:hover .jc-go{transform:translateY(-1px);box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 16px 34px -12px rgba(255,90,40,.65)}
 .jcard{padding-bottom:20px}
 .jc-go{margin-top:18px}
+
+/* ============================== v19: fixes ============================== */
+.sec,.k-sec{content-visibility:visible!important}
+section[id],[id].k-sec,.cr-hero{scroll-margin-top:calc(var(--nav,72px) + 14px)}
+html:has(body.lock),body.lock{overflow:hidden!important}
+/* menu: a glass highlight slides behind the hovered link and rests on your section */
+.nav .menu a.ln{position:relative;z-index:1}
+.menu-ind{top:50%;bottom:auto!important;height:34px;border-radius:10px 0 10px 0;z-index:0;
+  background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.035));border:1px solid rgba(255,255,255,.12);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 6px 18px -8px rgba(0,0,0,.8)}
+.menu-ind::after{content:'';position:absolute;left:50%;bottom:-1px;width:14px;height:2px;margin-left:-7px;border-radius:2px;background:var(--hot);box-shadow:0 0 8px var(--hot)}
+.menu a.ln.on{color:#fff}
+/* job pages */
+.jh-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.jh-tags span{padding:6px 12px;border:1px solid rgba(255,255,255,.16);border-radius:8px 0 8px 0;background:rgba(255,255,255,.03);
+  font-family:var(--data);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--t2)}
+.jh-tags span:first-child{border-color:rgba(255,90,60,.45);color:#ff8a6a}
+.j-sticky{display:none}
+@media (max-width:820px){
+  .j-sticky{display:flex;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:240;align-items:center;justify-content:space-between;gap:12px;
+    padding:10px 10px 10px 16px;border:1px solid #2c2c2c;border-radius:14px 0 14px 0;background:rgba(10,10,10,.88);backdrop-filter:blur(12px);
+    box-shadow:0 16px 40px rgba(0,0,0,.6);transition:transform .45s cubic-bezier(.22,1,.36,1),opacity .3s}
+  .j-sticky.away{transform:translateY(140%);opacity:0;pointer-events:none}
+  .j-sticky div{min-width:0}.j-sticky b{display:block;font-family:var(--nul);font-weight:400;font-size:13px;text-transform:uppercase;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .j-sticky span{font-family:var(--data);font-weight:700;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--t4)}
+  .j-sticky .btn{min-height:44px;padding:0 14px;font-size:12px;flex-shrink:0}
+  body:has(.j-sticky) .totop{bottom:86px}
+  .jh-tags span{font-size:10.5px;padding:5px 10px}
+}
+/* ============================== v19: phone polish ============================== */
+@media (max-width:820px){
+  .hero .hero-in{padding-left:24px;padding-right:24px}
+  .hero .chrome{width:calc(100vw - 48px)!important}
+  .hero .tag{font-size:15px;line-height:1.62}
+  .hero .hero-cta{display:grid;grid-template-columns:1fr;gap:10px;width:100%;max-width:360px;margin:24px auto 0}
+  .hero .hero-cta .btn{min-height:52px;font-size:12.5px;letter-spacing:.14em;justify-content:space-between;padding:0 10px 0 22px}
+  .hero .hero-cta .btn-s{justify-content:center}
+  /* units: one clean row each */
+  .units{grid-template-columns:1fr;gap:10px}
+  .unit,.unit.bp{display:grid;grid-template-columns:1fr auto;align-items:center;gap:2px 14px;padding:16px 18px}
+  .unit .loc{grid-column:1/-1;font-size:11px}
+  .unit h3{font-size:16px}
+  .unit .big{grid-row:2;grid-column:2;font-size:20px;text-align:right}
+  .unit .big small{display:inline;font-size:10px;margin-left:4px}
+  .unit .meter{grid-column:1/-1}
+  .unit .go{grid-column:1/-1;min-height:44px;display:flex;align-items:center;font-size:12px;letter-spacing:.12em}
+  /* readable small labels */
+  .kt small,.jh-tags span,.jc-rows span,.rr span,.k-row .k,.nn .enter,.copy,.bl-l span,.k-models .k-m .tt,.k-brands small{font-size:11.5px!important}
+  .nn .enter .o,.j-sticky span{font-size:11.5px}
+  /* comfortable tap targets */
+  .fg a{min-height:40px;display:flex;align-items:center;padding:0}
+  .k-card a.ln,.con .ln,.rail-c .ln{min-height:44px;display:flex;align-items:center}
+  .con .lgo,.k-card .lgo{min-height:44px;display:flex;align-items:center}
+  .go,.ti a.go{min-height:44px;display:inline-flex;align-items:center}
+  .wall-f button,.k-m{min-height:44px}
+}
 .cp .shot .cap{display:block}.cp .brand{display:block}.cp .contact-grid .con{display:block}.mapx .comet{opacity:0;transition:opacity .8s}.mapx.live .comet{opacity:1}.yr-big .nw{position:absolute;left:0;top:0;opacity:0;background:var(--steelg);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;transition:opacity .4s}.yr-big.now .d{opacity:0}.yr-big.now .nw{opacity:1}.yr-big .d{transition:opacity .4s}

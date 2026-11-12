@@ -196,7 +196,7 @@ function onScroll() {
   const y = scrollY, h = document.documentElement.scrollHeight - innerHeight;
   prog.style.transform = `scaleX(${h > 0 ? y / h : 0})`;
   nav.classList.toggle('solid', y > 30);
-  if (!document.body.classList.contains('menu-open') && !document.body.classList.contains('lock')) { if (y > (window.__ly || 0) + 6 && y > 420) nav.classList.add('tuck'); else if (y < (window.__ly || 0) - 4 || y < 120) nav.classList.remove('tuck'); }
+  if (!document.body.classList.contains('menu-open') && !document.body.classList.contains('lock')) { if (innerWidth > 820 && performance.now() > (window.__noTuckUntil || 0) && y > (window.__ly || 0) + 12 && y > 900) nav.classList.add('tuck'); else if (y < (window.__ly || 0) - 4 || y < 120) nav.classList.remove('tuck'); }
   window.__ly = y; if (window.__spy) window.__spy(); totop.classList.toggle('on', y > innerHeight * 1.4);
   lastY = y;
   const v = $('[data-view].show'); if (!v) return;
@@ -472,14 +472,14 @@ window.__lamp = [1, .95, .88];
   eq.addEventListener('click', e => { if (e.target === eq) close(); }); addEventListener('keydown', e => { if (e.key === 'Escape' && eq.classList.contains('open')) close(); });
   document.addEventListener('click', e => { const a = e.target.closest('a,button'); if (!a || a.closest('.eq')) return;
     if (a.hasAttribute('data-eq') || /quote/i.test(a.textContent) || (a.getAttribute('href') || '').includes('Quote%20Request')) { e.preventDefault(); e.stopImmediatePropagation();
-      const v = $('[data-view].show').dataset.view; S.co = v !== 'main' ? v : null; open(); } }, true);
+      const v = $('[data-view].show').dataset.view; S.co = ['fe', 'de', 'fapl'].includes(v) ? v : null; open(); } }, true);
 })();
 
 /* ---------- menu: an indicator slides to the hovered link and rests on the section you are in ---------- */
 (() => { const menu = $('.nav .menu'); if (!menu) return; const ind = document.createElement('i'); ind.className = 'menu-ind'; menu.appendChild(ind);
   const links = $$('a.ln', menu); let cur = null, tgt = null, until = 0, raf = 0;
   const place = () => { if (!tgt) { ind.style.opacity = 0; return; } const r = tgt.getBoundingClientRect(), mr = menu.getBoundingClientRect();
-    ind.style.transform = `translateX(${(r.left - mr.left + 8).toFixed(1)}px)`; ind.style.width = Math.max(0, r.width - 16) + 'px'; ind.style.opacity = 1; };
+    ind.style.transform = `translate(${(r.left - mr.left).toFixed(1)}px,-50%)`; ind.style.width = r.width + 'px'; ind.style.opacity = 1; };
   const follow = () => { place(); if (performance.now() < until) raf = requestAnimationFrame(follow); else raf = 0; };
   const aim = (a, ms = 700) => { tgt = a; until = performance.now() + ms; if (!raf) raf = requestAnimationFrame(follow); };
   links.forEach(a => a.addEventListener('pointerenter', () => aim(a)));
@@ -494,6 +494,28 @@ window.__lamp = [1, .95, .88];
     if (a !== cur) { cur && cur.classList.remove('on'); cur = a; cur && cur.classList.add('on'); if (!menu.matches(':hover')) aim(cur); } };
 })();
 
+/* ---------- section jumps: scroll there, then keep correcting until the page has settled (lazy images shift layout) ---------- */
+function goTo(t, smooth) {
+  window.__noTuckUntil = performance.now() + 2800; nav && nav.classList.remove('tuck');   // a jump you asked for keeps the bar visible
+  const off = () => (parseFloat(getComputedStyle(t).scrollMarginTop) || 86);
+  scrollTo({ top: Math.max(0, t.getBoundingClientRect().top + scrollY - off()), behavior: smooth && !calm ? 'smooth' : 'auto' });
+  const t0 = performance.now(); let lastMove = performance.now(), prev = scrollY;
+  (function settle() { const now = performance.now(); if (scrollY !== prev) { prev = scrollY; lastMove = now; }
+    if (now - lastMove > 140) { const d = t.getBoundingClientRect().top - off(); if (Math.abs(d) > 4) scrollTo({ top: scrollY + d, behavior: 'auto' }); }
+    if (now - t0 < 2400) requestAnimationFrame(settle); })();
+}
+(() => { const h = location.hash; if (!h || !/^#[\w-]+$/.test(h)) return;   // arriving with a section in the URL: jump as soon as the page is laid out, re-settle after images load
+  const go = () => { const t = document.getElementById(h.slice(1)); if (t && !t.matches('[data-view]')) goTo(t, false); };
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => requestAnimationFrame(go)); else requestAnimationFrame(go);
+  addEventListener('load', () => setTimeout(go, 30)); })();
+
+/* ---------- job pages: sticky Apply bar on phones steps aside at the form ---------- */
+function jobSticky(v) { const s = $('.j-sticky', v), ap = $('#apply', v), hero = $('.cr-hero .acts', v); if (!s || !ap || s.dataset.on) return; s.dataset.on = 1;
+  let atForm = false, heroBtns = true; const upd = () => s.classList.toggle('away', atForm || heroBtns); s.classList.add('away');
+  new IntersectionObserver(es => { atForm = es[0].isIntersecting; upd(); }, { rootMargin: '0px 0px -30% 0px' }).observe(ap);
+  if (hero) new IntersectionObserver(es => { heroBtns = es[0].isIntersecting || es[0].boundingClientRect.top > 0; upd(); }).observe(hero); else { heroBtns = false; upd(); } }
+
 /* ---------- router ---------- */
 const booted = {};
 /* Tally forms: load only the visible view's form, size it from Tally's own resize messages */
@@ -507,7 +529,7 @@ function route() {
   $$('[data-view]').forEach(x => x.classList.toggle('show', x === view));
   $$('.chip').forEach(c => c.classList.toggle('here', c.dataset.co === view.dataset.view));
   if (!booted[view.dataset.view]) {
-    booted[view.dataset.view] = 1; arm(view); belts(view); wall(view); mapx(view); scanner(view); components(view); kba(view); $$('.k-spec,.k-edge,.k-cmp', view).forEach(el => io.observe(el)); $$('.cu', view).forEach(el => cuIO.observe(el));
+    booted[view.dataset.view] = 1; arm(view); belts(view); wall(view); mapx(view); scanner(view); components(view); kba(view); $$('.k-spec,.k-edge,.k-cmp', view).forEach(el => io.observe(el)); jobSticky(view); $$('.cu', view).forEach(el => cuIO.observe(el));
     const f = $('.dust', view); if (f) dust(f);
     const hc = $('.tag .hc', view); if (hc) setTimeout(() => countUp(hc), 900);
     const cr = $('#chrome', view); if (cr) chrome(cr, cr.dataset.map, $('.chrome-fb', view));
@@ -536,8 +558,8 @@ document.addEventListener('click', e => {
   const a = e.target.closest('a[href^="#"]'); if (!a) return; const h = a.getAttribute('href'); if (h.startsWith('#/') || h === '#') return;
   const t = $(`[data-view].show ${h}`);
   e.preventDefault();
-  if (!t) { location.hash = '#/'; setTimeout(() => { const t2 = $(`[data-view].show ${h}`); t2 && t2.scrollIntoView(); }, 80); return; }
-  t.scrollIntoView({ behavior: calm ? 'auto' : 'smooth' });
+  if (!t) { location.hash = '#/'; setTimeout(() => { const t2 = $(`[data-view].show ${h}`); t2 && goTo(t2, false); }, 80); return; }
+  goTo(t, true);
 });
 route();
 })();

@@ -101,7 +101,7 @@ function page(o) {
 /* ---------------- careers hub ---------------- */
 console.log('Building careers...');
 const N = JOBS.length;
-const hub = COPY.hub.replace('<main data-view', '<main class="show" data-view')
+const hub = COPY.hub.replace('<main data-view', '<main class="show" id="main" data-view')
   .replace('{{JOBS}}', '<div class="jgrid">' + JOBS.map((j, i) => card(j, i)).join(''))
   .replace('{{N}}', `${N} position${N === 1 ? '' : 's'}`);
 write('careers/index.html', page({
@@ -143,6 +143,7 @@ function jobPage(j) {
 
   const hero = `<section class="cr-hero job"><div class="heat"></div><div class="grid-bg"></div><div class="wrap"><a class="back ia" href="/careers">&larr; All Openings</a>`
     + `<div class="jh-co ia" style="animation-delay:.1s">${logo(j)}</div><h1 class="ia" style="animation-delay:.18s">${esc(j.title)}</h1>`
+    + `<div class="jh-tags ia" style="animation-delay:.22s"><span>${esc(c.sector)}</span><span>${typeLabel(j.employmentType)}</span>${j.posted ? `<span>Posted ${new Date(j.posted).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}</span>` : ''}</div>`
     + `<p class="lede ia" style="animation-delay:.28s">${esc(j.summary)}</p><div class="k-tiles ia" style="animation-delay:.38s">`
     + tile('Location', esc(c.shortLocation)) + tile('Workplace', esc(j.workplace)) + tile('Experience', esc(j.experience)) + tile('Salary', sal(j), true)
     + `</div><div class="acts ia" style="animation-delay:.48s"><a class="btn btn-p" href="#apply">Apply For This Role <span class="ar">&rarr;</span></a>`
@@ -181,7 +182,7 @@ function jobPage(j) {
     desc: `${esc(plain(j.summary))} ${esc(c.shortLocation)}.${pay ? ' ' + esc(pay) + '.' : ''} Apply online or walk in.`,
     url: SITE + jobUrl(j),
     ld: `<script type="application/ld+json">\n${JSON.stringify(ld)}\n</script>\n`,
-    main: `<main class="show" data-view="careers/${j.slug}" data-title="${t} | Careers | Ferrous Group">${hero}${body}${apply}${walk}${more}${COPY.next}</main>`
+    main: `<main class="show" id="main" data-view="careers/${j.slug}" data-title="${t} | Careers | Ferrous Group">${hero}${body}${apply}${walk}${more}${COPY.next}<div class="j-sticky"><div><b>${t}</b><span>${esc(c.name)}</span></div><a class="btn btn-p" href="#apply">Apply <span class="ar">&rarr;</span></a></div></main>`
   });
 }
 JOBS.forEach(j => write(`careers/${j.slug}/index.html`, jobPage(j)));

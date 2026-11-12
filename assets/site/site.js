@@ -169,10 +169,16 @@ if (fine && !calm) {
 } else $$('.cur,.cur-r').forEach(e => e.remove());
 
 /* ---------- nav ---------- */
-const burger = $('.burger');
-burger.addEventListener('click', () => { const o = document.body.classList.toggle('mopen'); burger.setAttribute('aria-expanded', o); document.body.classList.toggle('lock', o); });
-$$('.mnav a').forEach(a => a.addEventListener('click', () => { document.body.classList.remove('mopen', 'lock'); burger.setAttribute('aria-expanded', false); }));
-addEventListener('keydown', e => { if (e.key === 'Escape') { document.body.classList.remove('mopen', 'lock'); burger.setAttribute('aria-expanded', false); } });
+const burger = $('.burger'); let lastTogStamp = -1e9, lastTogNow = -1e9;
+const setMenu = o => { document.body.classList.toggle('mopen', o); document.body.classList.toggle('lock', o); burger.setAttribute('aria-expanded', o); burger.setAttribute('aria-label', o ? 'Close menu' : 'Menu'); };
+/* one toggle per tap: a queued second tap on a busy phone must never close what the first one opened */
+burger.addEventListener('click', e => { const now = performance.now();
+  if (Math.min(e.timeStamp - lastTogStamp, now - lastTogNow) < 700) return;   // too soon after the last toggle by either clock: busy phone, queued or impatient tap
+  lastTogStamp = e.timeStamp; lastTogNow = now; setMenu(!document.body.classList.contains('mopen')); });
+$$('.mnav a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+addEventListener('resize', () => { if (innerWidth > 820 && document.body.classList.contains('mopen')) setMenu(false); });
+addEventListener('pageshow', e => { if (e.persisted) setMenu(false); });
 const nav = $('.nav'), prog = $('.prog'), totop = $('.totop'); let lastY = 0;
 totop.addEventListener('click', () => scrollTo({ top: 0, behavior: calm ? 'auto' : 'smooth' }));
 
@@ -472,26 +478,16 @@ window.__lamp = [1, .95, .88];
   eq.addEventListener('click', e => { if (e.target === eq) close(); }); addEventListener('keydown', e => { if (e.key === 'Escape' && eq.classList.contains('open')) close(); });
   document.addEventListener('click', e => { const a = e.target.closest('a,button'); if (!a || a.closest('.eq')) return;
     if (a.hasAttribute('data-eq') || /quote/i.test(a.textContent) || (a.getAttribute('href') || '').includes('Quote%20Request')) { e.preventDefault(); e.stopImmediatePropagation();
-      const v = $('[data-view].show').dataset.view; S.co = ['fe', 'de', 'fapl'].includes(v) ? v : null; open(); } }, true);
+      const v = $('[data-view].show').dataset.view; S.co = ['fe', 'de', 'fapl'].includes(v) ? v : null; setMenu(false); open(); } }, true);
 })();
 
-/* ---------- menu: an indicator slides to the hovered link and rests on the section you are in ---------- */
-(() => { const menu = $('.nav .menu'); if (!menu) return; const ind = document.createElement('i'); ind.className = 'menu-ind'; menu.appendChild(ind);
-  const links = $$('a.ln', menu); let cur = null, tgt = null, until = 0, raf = 0;
-  const place = () => { if (!tgt) { ind.style.opacity = 0; return; } const r = tgt.getBoundingClientRect(), mr = menu.getBoundingClientRect();
-    ind.style.transform = `translate(${(r.left - mr.left).toFixed(1)}px,-50%)`; ind.style.width = r.width + 'px'; ind.style.opacity = 1; };
-  const follow = () => { place(); if (performance.now() < until) raf = requestAnimationFrame(follow); else raf = 0; };
-  const aim = (a, ms = 700) => { tgt = a; until = performance.now() + ms; if (!raf) raf = requestAnimationFrame(follow); };
-  links.forEach(a => a.addEventListener('pointerenter', () => aim(a)));
-  $$('.chip', menu).forEach(c => c.addEventListener('pointerenter', () => aim(null)));
-  menu.addEventListener('pointerleave', () => aim(cur, 900));
-  try { new ResizeObserver(() => aim(tgt, 120)).observe(menu); } catch (_) {}
-  addEventListener('resize', () => aim(tgt, 120));
+/* ---------- menu: the section you are in stays lit ---------- */
+(() => { const menu = $('.nav .menu'); if (!menu) return; const links = $$('a.ln', menu); let cur = null;
   const ids = ['group', 'clients', 'journey', 'infrastructure', 'photos', 'contact'];
-  window.__spy = () => { const v = $('[data-view].show'); if (!v || v.dataset.view !== 'main') { if (cur) { cur.classList.remove('on'); cur = null; if (!menu.matches(':hover')) aim(null); } return; }
-    let best = null; ids.forEach(id => { const s = $('#' + id, v); if (s && s.getBoundingClientRect().top < innerHeight * .4) best = id; });
-    const a = best ? links.find(l => (l.getAttribute('href') || '').endsWith('#' + best)) : null;
-    if (a !== cur) { cur && cur.classList.remove('on'); cur = a; cur && cur.classList.add('on'); if (!menu.matches(':hover')) aim(cur); } };
+  window.__spy = () => { const v = $('[data-view].show'); let a = null;
+    if (v && v.dataset.view === 'main') { let best = null; ids.forEach(id => { const s = $('#' + id, v); if (s && s.getBoundingClientRect().top < innerHeight * .4) best = id; });
+      a = best ? links.find(l => (l.getAttribute('href') || '').endsWith('#' + best)) : null; }
+    if (a !== cur) { cur && cur.classList.remove('on'); cur = a; cur && cur.classList.add('on'); } };
 })();
 
 /* ---------- section jumps: scroll there, then keep correcting until the page has settled (lazy images shift layout) ---------- */
@@ -504,13 +500,13 @@ function goTo(t, smooth) {
     if (now - lastMove > 140) { const d = t.getBoundingClientRect().top - off(); if (Math.abs(d) > 4) scrollTo({ top: scrollY + d, behavior: 'auto' }); }
     if (now - t0 < 2400) requestAnimationFrame(settle); })();
 }
-(() => { const h = location.hash; if (!h || !/^#[\w-]+$/.test(h)) return;   // arriving with a section in the URL: jump as soon as the page is laid out, re-settle after images load
+(() => { const h = location.hash; if (!h || !/^#[\w-]+$/.test(h)) return;   // arriving with a section in the URL: jump once laid out, re-settle after images load
   const go = () => { const t = document.getElementById(h.slice(1)); if (t && !t.matches('[data-view]')) goTo(t, false); };
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => requestAnimationFrame(go)); else requestAnimationFrame(go);
   addEventListener('load', () => setTimeout(go, 30)); })();
 
-/* ---------- job pages: sticky Apply bar on phones steps aside at the form ---------- */
+/* ---------- job pages: sticky Apply bar on phones shows only between the hero buttons and the form ---------- */
 function jobSticky(v) { const s = $('.j-sticky', v), ap = $('#apply', v), hero = $('.cr-hero .acts', v); if (!s || !ap || s.dataset.on) return; s.dataset.on = 1;
   let atForm = false, heroBtns = true; const upd = () => s.classList.toggle('away', atForm || heroBtns); s.classList.add('away');
   new IntersectionObserver(es => { atForm = es[0].isIntersecting; upd(); }, { rootMargin: '0px 0px -30% 0px' }).observe(ap);

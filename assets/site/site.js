@@ -561,3 +561,11 @@ document.addEventListener('click', e => {
 });
 route();
 })();
+
+/* ---------- phone hero: centre the ring on the wordmark, measured from layout (ignores reveal motion), only when the width changes ---------- */
+(() => { const hero = document.querySelector('.hero'), w = hero && hero.querySelector('.chrome'); if (!hero || !w) return; let lastW = 0;
+  const place = () => { if (innerWidth > 820) return; let y = w.offsetHeight / 2, e = w;
+    while (e && e !== hero) { y += e.offsetTop; e = e.offsetParent; } y = Math.round(y);
+    if (Math.abs(y - lastW) > 1) { lastW = y; hero.style.setProperty('--ry', y + 'px'); } };   // only touches the ring when the wordmark really moved
+  place(); addEventListener('load', place); if (document.fonts) document.fonts.ready.then(place);
+  addEventListener('resize', place); })();

@@ -487,7 +487,9 @@ window.__lamp = [1, .95, .88];
   window.__spy = () => { const v = $('[data-view].show'); let a = null;
     if (v && v.dataset.view === 'main') { let best = null; ids.forEach(id => { const s = $('#' + id, v); if (s && s.getBoundingClientRect().top < innerHeight * .4) best = id; });
       a = best ? links.find(l => (l.getAttribute('href') || '').endsWith('#' + best)) : null; }
+    else if (v && v.dataset.view.indexOf('careers') === 0) a = links.find(l => /careers/.test(l.getAttribute('href') || '')) || null;   // careers pages light Careers
     if (a !== cur) { cur && cur.classList.remove('on'); cur = a; cur && cur.classList.add('on'); } };
+  window.__spy(); addEventListener('hashchange', () => setTimeout(window.__spy, 260)); addEventListener('load', window.__spy);
 })();
 
 /* ---------- section jumps: scroll there, then keep correcting until the page has settled (lazy images shift layout) ---------- */

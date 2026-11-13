@@ -568,4 +568,6 @@ route();
     while (e && e !== hero) { y += e.offsetTop; e = e.offsetParent; } y = Math.round(y);
     if (Math.abs(y - lastW) > 1) { lastW = y; hero.style.setProperty('--ry', y + 'px'); } };   // only touches the ring when the wordmark really moved
   place(); addEventListener('load', place); if (document.fonts) document.fonts.ready.then(place);
-  addEventListener('resize', place); })();
+  addEventListener('resize', place);
+  /* the hero is the first screen: on phones reveal all of it at once (bottom-anchored items sit outside the scroll trigger zone) */
+  if (innerWidth <= 820) requestAnimationFrame(() => hero.querySelectorAll('.rv').forEach(e => e.classList.add('in'))); })();

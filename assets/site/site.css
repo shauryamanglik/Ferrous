@@ -2165,4 +2165,11 @@ a,button,[role=button],.k-m,.chip{-webkit-tap-highlight-color:transparent;touch-
   .hstats b{font-family:var(--nul);font-weight:400;font-size:22px;letter-spacing:.02em;color:#fff}
   .hero .cue{display:none}
 }
+/* phone menu: companies on top, pages in two even columns (still no animation inside) */
+.mnav .mlab{margin:0 0 12px}
+.mnav .ml{display:grid;grid-template-columns:1fr 1fr;column-gap:18px;margin-top:20px;border-top:0}
+.mnav .ml a{grid-template-columns:30px 1fr;min-height:54px;font-size:17px}
+.mnav .ml a:last-child{grid-column:1/-1}
+/* phone hero: the ring sits behind the wordmark, not the buttons */
+@media (max-width:820px){ .hero .ring{top:calc(var(--nav) + 185px);width:104vw} }
 .cp .shot .cap{display:block}.cp .brand{display:block}.cp .contact-grid .con{display:block}.mapx .comet{opacity:0;transition:opacity .8s}.mapx.live .comet{opacity:1}.yr-big .nw{position:absolute;left:0;top:0;opacity:0;background:var(--steelg);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;transition:opacity .4s}.yr-big.now .d{opacity:0}.yr-big.now .nw{opacity:1}.yr-big .d{transition:opacity .4s}
